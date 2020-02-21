@@ -13,6 +13,16 @@ spring:
   profiles:
     active: dev
 
+  # 访问静态资源，前缀需要为 /static
+  mvc:
+    static-path-pattern: /static/**
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
 
 #mybatis
 mybatis-plus:

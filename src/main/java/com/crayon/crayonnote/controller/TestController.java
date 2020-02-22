@@ -2,20 +2,15 @@ package com.crayon.crayonnote.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/test")
 public class TestController {
 
     @RequestMapping("/test1")
     public String test1() {
         return "test1";
-    }
-
-
-    @RequestMapping("/index")
-    public String testIndex() {
-        return "home";
     }
 
 }

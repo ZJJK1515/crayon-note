@@ -84,67 +84,16 @@
       <div class="sidebar-wrapper">
         <ul class="nav" >
           <li class="nav-item " >
-            <a class="nav-link" href="#pagesExamples" data-toggle="collapse" aria-expanded="false">
+            <a class="nav-link" href="#">
               <i class="material-icons">dashboard</i>
-              <p>Dashboard <b class="caret"></b></p>
-            </a>
-            <div class="collapse" id="pagesExamples" style="">
-              <ul class="nav">
-                <li class="nav-item ">
-                  <a class="nav-link" href="#">
-                    <span class="sidebar-mini"> P </span>
-                    <span class="sidebar-normal"> Pricing </span>
-                  </a>
-                </li>
-                <li class="nav-item ">
-                  <a class="nav-link" href="#">
-                    <span class="sidebar-mini"> RS </span>
-                    <span class="sidebar-normal"> RTL Support </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/examples/user.html">
-              <i class="material-icons">person</i>
-              <p>User Profile</p>
+              <p>Dashboard </p>
             </a>
           </li>
+
           <li class="nav-item ">
             <a class="nav-link" href="/examples/tables.html">
               <i class="material-icons">content_paste</i>
               <p>Table List</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/examples/typography.html">
-              <i class="material-icons">library_books</i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/examples/icons.html">
-              <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/examples/map.html">
-              <i class="material-icons">location_ons</i>
-              <p>Maps</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/examples/notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="/examples/rtl.html">
-              <i class="material-icons">language</i>
-              <p>RTL Support</p>
             </a>
           </li>
           <li class="nav-item active-pro ">
@@ -161,7 +110,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Dashboard</a>
+            <a class="navbar-brand" href="javascript:;">蜡笔统计</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -643,8 +592,8 @@
           <nav class="float-left">
             <ul>
               <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
+                <a href="https://github.com/ZJJK1515/crayon-note/">
+                  github
                 </a>
               </li>
               <li>
@@ -675,6 +624,8 @@
       </footer>
     </div>
   </div>
+
+  <!-- 设置插件 -->
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
@@ -745,5 +696,47 @@
   </div>
 
 </body>
+<script>
+  $(function(){
+    $.ajax({
+      type: 'get',
+      url: '/crayon-note/menu/list',
+      success: function(data){
+        var sidebar = $('.sidebar-wrapper .nav');
+        for (i = 0; i < data.length; i++) {
+          var parentMenu = data[i];
+          var hasChild = data[i].childMenuList.length > 0;
+          var collapseName = parentMenu + 'Collapse';
+          sidebar.append(
+            // 拼接父级菜单
+            '<li class="nav-item ">' +
+            '   <a class="nav-link" href="' + (hasChild ? '#' + collapseName : parentMenu.uri) + '" data-toggle="collapse" aria-expanded="false">' +
+            '     <i class="material-icons">' + parentMenu.icon + '</i>' +
+            '       <p>' + parentMenu.menuName + (hasChild ? '<b class="caret">':'') + '</b></p></a>');
+
+          // 如果有子菜单，拼接子级菜单
+          for (j = 0; j < parentMenu.childMenuList.length; j++) {
+            var childMenu = parentMenu.childMenuList[j];
+            sidebar.append(
+              '<div class="collapse" id="' + collapseName + '" style="">' +
+              '<ul class="nav">' +
+              '<li class="nav-item ">' +
+              '<a class="nav-link" href="' + childMenu.uri + '">' +
+              '  <span class="sidebar-mini"> <i class="material-icons">' + childMenu.icon + '</i> </span>' +
+              '  <span class="sidebar-normal"> ' + childMenu.menuName + ' </span>' +
+              '</a>' +
+              '</li>' +
+              '</ul>' +
+              '</div>'
+            );
+          }
+          sidebar.append('</li>');
+
+        }
+      }
+    })
+  });
+</script>
+
 
 </html>

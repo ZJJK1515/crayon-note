@@ -1,0 +1,30 @@
+<html lang="zh-cn">
+<head>
+    <title>登录</title>
+    <script src="/crayon-note/static/assets/js/core/jquery.min.js"></script>
+</head>
+<body>
+<form action="./login" method="post">
+    用户名： <label>
+    <input type="text" name="username" class="username">
+    密码：<input type="password" name="password" class="password">
+    <input type="button" onclick="login()" value="提交">
+    </label>
+</form>
+</body>
+<script>
+    function login() {
+        var username = $(".username").val();
+        var password = $(".password").val();
+        $.ajax({
+            url: "/crayon-note/login",
+            type: "post",
+            data: {"username": username, "password": password},
+            datatype: "json",
+            success: function() {
+
+            }
+        })
+    }
+</script>
+</html>

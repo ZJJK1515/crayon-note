@@ -15,3 +15,25 @@ INSERT INTO crayonnote.sys_menu (menu_id, menu_name, uri, icon, parent_id, creat
 INSERT INTO crayonnote.sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146873177067522', '系统管理', '#', 'settings', '0', '2020-02-22 15:17:39', '2020-02-22 17:21:13');
 INSERT INTO crayonnote.sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146877325234177', '用户管理', 'system/usermanage', 'person', '1231146873177067522', '2020-02-22 15:17:39', '2020-02-23 17:30:40');
 INSERT INTO crayonnote.sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146879493689345', '博客管理', '#', 'settings', '0', '2020-02-22 15:42:52', '2020-02-22 17:21:13');
+
+
+-- auto-generated definition
+create table sys_user
+(
+    user_id  varchar(20) default '' not null comment '用户 ID'
+        primary key,
+    username varchar(20)            not null comment '用户名',
+    password varchar(20)            not null comment '密码',
+    salt     varchar(20)            null comment '盐值',
+    name     varchar(10)            not null comment '昵称',
+    email    varchar(50)            not null comment '邮箱',
+    constraint sys_user_email_uindex
+        unique (email),
+    constraint sys_user_name_uindex
+        unique (name),
+    constraint sys_user_username_uindex
+        unique (username)
+)
+    comment '用户信息表';
+
+INSERT INTO crayonnote.sys_user (user_id, username, password, salt, name, email) VALUES ('1', 'developer', 'b858e2c9d50970be2fda7d0949e4a980', 'UUID-UUID-UUID-UUID', 'developer', 'developer@gmail.com');

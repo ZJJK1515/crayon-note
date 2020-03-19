@@ -2,7 +2,6 @@ package com.crayonnote.modules.common;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.crayonnote.modules.common.exception.CrayonException;
-import org.springframework.beans.BeanUtils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -14,7 +13,7 @@ import java.lang.reflect.Type;
  * @param <Entity> 实体类型
  * @author JYKingWY
  */
-public abstract class AbstractVO<VO, Entity> extends CrayonObject<VO> {
+public abstract class AbstractVO<VO, Entity> extends CrayonObject {
 
     /**
      * 分页条件
@@ -35,9 +34,9 @@ public abstract class AbstractVO<VO, Entity> extends CrayonObject<VO> {
         Entity entity;
         try {
             entity = entityClass.newInstance();
-            super.copyProperties(entity);
+            super.copyPropertiesFrom(entity);
         } catch (InstantiationException | IllegalAccessException e) {
-            throw new CrayonException("泛型获取错误...");
+            throw new CrayonException("反射创建对象时出现异常...");
         }
         return entity;
     }

@@ -1,4 +1,4 @@
-package com.crayon.crayonnote.utils;
+package com.crayonnote.modules.common.utils;
 
 public class CrayonResult {
 

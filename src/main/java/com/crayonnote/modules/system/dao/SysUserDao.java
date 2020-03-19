@@ -1,7 +1,7 @@
-package com.crayon.crayonnote.system.dao;
+package com.crayonnote.modules.system.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.crayon.crayonnote.entity.SysUser;
+import com.crayonnote.modules.common.entity.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

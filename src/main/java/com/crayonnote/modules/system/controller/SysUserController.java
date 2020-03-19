@@ -1,8 +1,8 @@
-package com.crayon.crayonnote.system.controller;
+package com.crayonnote.modules.system.controller;
 
-import com.crayon.crayonnote.entity.SysUser;
-import com.crayon.crayonnote.system.service.SysUserService;
-import com.crayon.crayonnote.utils.CrayonResult;
+import com.crayonnote.modules.common.entity.SysUser;
+import com.crayonnote.modules.system.service.SysUserService;
+import com.crayonnote.modules.common.utils.CrayonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

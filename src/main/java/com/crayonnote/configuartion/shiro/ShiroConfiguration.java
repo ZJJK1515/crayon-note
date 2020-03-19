@@ -1,4 +1,4 @@
-package com.crayon.crayonnote.shiro;
+package com.crayonnote.configuartion.shiro;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;

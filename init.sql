@@ -23,10 +23,12 @@ create table sys_user
     user_id  varchar(20) default '' not null comment '用户 ID'
         primary key,
     username varchar(20)            not null comment '用户名',
-    password varchar(20)            not null comment '密码',
+    password varchar(50)            not null comment '密码',
     salt     varchar(20)            null comment '盐值',
     name     varchar(10)            not null comment '昵称',
     email    varchar(50)            not null comment '邮箱',
+    create_time timestamp default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间',
     constraint sys_user_email_uindex
         unique (email),
     constraint sys_user_name_uindex
@@ -37,3 +39,20 @@ create table sys_user
     comment '用户信息表';
 
 INSERT INTO crayonnote.sys_user (user_id, username, password, salt, name, email) VALUES ('1', 'developer', 'b858e2c9d50970be2fda7d0949e4a980', 'UUID-UUID-UUID-UUID', 'developer', 'developer@gmail.com');
+
+
+drop table if exists sys_code;
+-- auto-generated definition
+create table sys_code
+(
+    code_id     varchar(20) default ''                not null comment '码值id'
+        primary key,
+    code_type   varchar(20)                           null comment '代码种类',
+    code_name   varchar(20)                           not null comment '代码名称',
+    code_value  varchar(20)                           not null comment '代码值',
+    remark      varchar(20) default ''                not null,
+    create_time timestamp default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time timestamp default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP comment '更新时间'
+)
+    comment '系统码表';
+

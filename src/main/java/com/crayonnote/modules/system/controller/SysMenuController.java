@@ -1,7 +1,7 @@
-package com.crayon.crayonnote.system.controller;
+package com.crayonnote.modules.system.controller;
 
-import com.crayon.crayonnote.entity.SysMenu;
-import com.crayon.crayonnote.system.service.SysMenuService;
+import com.crayonnote.modules.common.entity.SysMenu;
+import com.crayonnote.modules.system.service.SysMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

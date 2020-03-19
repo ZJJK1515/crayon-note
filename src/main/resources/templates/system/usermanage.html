@@ -67,7 +67,7 @@
     </div>
 </nav>
 <!-- End Navbar -->
-<div class="content">
+<div id="crayon-app" class="content">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
@@ -120,7 +120,7 @@
                             </th>
                             </thead>
                             <tbody>
-                            <tr>
+                                <tr>
                                 <td>
                                     1
                                 </td>
@@ -146,131 +146,6 @@
                                             class="material-icons">close</i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    2
-                                </td>
-                                <td>
-                                    Minerva Hooper
-                                </td>
-                                <td>
-                                    Curaçao
-                                </td>
-                                <td>
-                                    Sinaai-Waas
-                                </td>
-                                <td class="text-primary">
-                                    $23,789
-                                </td>
-                                <td class="text-right">
-                                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
-                                            class="material-icons">favorite</i></a>
-                                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
-                                            class="material-icons">dvr</i></a>
-                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
-                                            class="material-icons">close</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    3
-                                </td>
-                                <td>
-                                    Sage Rodriguez
-                                </td>
-                                <td>
-                                    Netherlands
-                                </td>
-                                <td>
-                                    Baileux
-                                </td>
-                                <td class="text-primary">
-                                    $56,142
-                                </td>
-                                <td class="text-right">
-                                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
-                                            class="material-icons">favorite</i></a>
-                                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
-                                            class="material-icons">dvr</i></a>
-                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
-                                            class="material-icons">close</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    4
-                                </td>
-                                <td>
-                                    Philip Chaney
-                                </td>
-                                <td>
-                                    Korea, South
-                                </td>
-                                <td>
-                                    Overland Park
-                                </td>
-                                <td class="text-primary">
-                                    $38,735
-                                </td>
-                                <td class="text-right">
-                                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
-                                            class="material-icons">favorite</i></a>
-                                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
-                                            class="material-icons">dvr</i></a>
-                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
-                                            class="material-icons">close</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    5
-                                </td>
-                                <td>
-                                    Doris Greene
-                                </td>
-                                <td>
-                                    Malawi
-                                </td>
-                                <td>
-                                    Feldkirchen in Kärnten
-                                </td>
-                                <td class="text-primary">
-                                    $63,542
-                                </td>
-                                <td class="text-right">
-                                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
-                                            class="material-icons">favorite</i></a>
-                                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
-                                            class="material-icons">dvr</i></a>
-                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
-                                            class="material-icons">close</i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    6
-                                </td>
-                                <td>
-                                    Mason Porter
-                                </td>
-                                <td>
-                                    Chile
-                                </td>
-                                <td>
-                                    Gloucester
-                                </td>
-                                <td class="text-primary">
-                                    $78,615
-                                </td>
-                                <td class="text-right">
-                                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
-                                            class="material-icons">favorite</i></a>
-                                    <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
-                                            class="material-icons">dvr</i></a>
-                                    <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
-                                            class="material-icons">close</i></a>
-                                </td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
@@ -288,7 +163,6 @@
             <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
     </nav>
-
 </div>
 
 
@@ -312,7 +186,21 @@
             </div>
         </div>
     </div>
+
 </div>
+
+<script>
+    var vm = new Vue({/* 根实例 */
+        el: '#crayon-app',
+        // 指向的哪个元素（实例的挂载目标）
+        data: {
+            msg: "你好"
+        },
+        // 所有根实例下的数据
+        methods: {}
+        // 所有根实例下的方法区别
+    });
+</script>
 
 <!--   Core JS Files   -->
 <!--  <script src="../assets/js/core/jquery.min.js"></script>-->

@@ -1,7 +1,7 @@
-package com.crayon.crayonnote.system.service;
+package com.crayonnote.modules.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.crayon.crayonnote.entity.SysUser;
+import com.crayonnote.modules.common.entity.SysUser;
 
 public interface SysUserService extends IService<SysUser> {
 }

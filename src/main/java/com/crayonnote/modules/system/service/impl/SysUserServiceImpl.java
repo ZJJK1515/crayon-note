@@ -1,9 +1,9 @@
-package com.crayon.crayonnote.system.service.impl;
+package com.crayonnote.modules.system.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.crayon.crayonnote.entity.SysUser;
-import com.crayon.crayonnote.system.dao.SysUserDao;
-import com.crayon.crayonnote.system.service.SysUserService;
+import com.crayonnote.modules.common.entity.SysUser;
+import com.crayonnote.modules.system.service.SysUserService;
+import com.crayonnote.modules.system.dao.SysUserDao;
 import org.springframework.stereotype.Service;
 
 @Service

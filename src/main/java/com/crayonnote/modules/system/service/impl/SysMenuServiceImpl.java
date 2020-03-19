@@ -1,10 +1,10 @@
-package com.crayon.crayonnote.system.service.impl;
+package com.crayonnote.modules.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.crayon.crayonnote.entity.SysMenu;
-import com.crayon.crayonnote.system.dao.SysMenuDao;
-import com.crayon.crayonnote.system.service.SysMenuService;
+import com.crayonnote.modules.common.entity.SysMenu;
+import com.crayonnote.modules.system.dao.SysMenuDao;
+import com.crayonnote.modules.system.service.SysMenuService;
 import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
 

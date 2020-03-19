@@ -1,6 +1,6 @@
-package com.crayon.crayonnote.controller;
+package com.crayonnote.controller;
 
-import com.crayon.crayonnote.entity.SysUser;
+import com.crayonnote.modules.common.entity.SysUser;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;

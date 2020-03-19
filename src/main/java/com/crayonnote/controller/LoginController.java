@@ -1,6 +1,7 @@
 package com.crayonnote.controller;
 
 import com.crayonnote.modules.common.entity.SysUser;
+import com.crayonnote.modules.common.vo.SysUserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -27,7 +28,11 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(SysUser sysUser) {
+    public String login(SysUserVO sysUserVO) {
+
+        SysUser sysUser = sysUserVO.toEntity();
+        log.info("转化后: {}", sysUser);
+
         //添加用户认证信息
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(

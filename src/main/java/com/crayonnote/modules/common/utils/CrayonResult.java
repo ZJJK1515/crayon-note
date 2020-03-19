@@ -1,37 +1,37 @@
 package com.crayonnote.modules.common.utils;
 
-public class CrayonResult {
+import java.util.HashMap;
 
-    private boolean success;
+/**
+ * 调用结果类
+ *
+ */
+public class CrayonResult extends HashMap<String, Object> {
 
-    private Object data;
-
-    private String message;
-
-
-    public CrayonResult(boolean success) {
-        this.success = success;
+    public CrayonResult() {
+        super.put("success", true);
     }
 
-    public CrayonResult(boolean success, String message) {
-        this.success = success;
-        this.message = message;
+    public CrayonResult(String key, Object value) {
+        super.put(key, value);
     }
 
-    public CrayonResult(boolean success, Object data) {
-        this.success = success;
-        this.data = data;
+    public CrayonResult put(String key, Object value) {
+        super.put(key, value);
+        return this;
     }
 
     public static CrayonResult ok() {
-        return new CrayonResult(true);
+        return new CrayonResult();
     }
 
     public static CrayonResult ok(Object data) {
-        return new CrayonResult(true, data);
+        return new CrayonResult()
+                .put("data", data);
     }
 
-    public static CrayonResult error(String message) {
-        return new CrayonResult(false, message);
+    public static CrayonResult error(String code) {
+        return new CrayonResult("success", false)
+                .put("code", code);
     }
 }

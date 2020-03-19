@@ -9,4 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> implements SysUserService {
 
+
+    @Override
+    public void addUser(SysUser sysUser) {
+
+    }
+
+
 }

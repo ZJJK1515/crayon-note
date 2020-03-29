@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 /**
  * 登录控制器
  */
@@ -27,6 +29,7 @@ public class LoginController {
         return subject.isAuthenticated() ? "home" : "login";
     }
 
+    @Valid
     @PostMapping("/login")
     public String login(SysUserVO sysUserVO) {
 

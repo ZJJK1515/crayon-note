@@ -18,7 +18,7 @@ public abstract class AbstractVO<VO, Entity> extends CrayonObject {
     /**
      * 分页条件
      */
-    private Page<VO> page;
+    private Page<VO> page = new Page<>();
 
     private Class<Entity> entityClass;
 
@@ -34,7 +34,7 @@ public abstract class AbstractVO<VO, Entity> extends CrayonObject {
         Entity entity;
         try {
             entity = entityClass.newInstance();
-            super.copyPropertiesFrom(entity);
+            super.copyProperties(entity);
         } catch (InstantiationException | IllegalAccessException e) {
             throw new CrayonException("反射创建对象时出现异常...");
         }

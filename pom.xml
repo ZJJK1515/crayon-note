@@ -20,7 +20,7 @@
         <druid.version>1.1.21</druid.version>
         <mybatis-plus.version>3.1.0</mybatis-plus.version>
         <shiro.version>1.4.2</shiro.version>
-        <fastjson.version>1.2.60</fastjson.version>
+        <fastjson.version>1.2.68</fastjson.version>
     </properties>
 
     <dependencies>
@@ -102,6 +102,14 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
 
     </dependencies>
 

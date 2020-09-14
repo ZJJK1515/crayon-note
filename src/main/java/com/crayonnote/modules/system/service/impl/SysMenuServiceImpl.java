@@ -2,7 +2,7 @@ package com.crayonnote.modules.system.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.crayonnote.modules.common.entity.SysMenu;
+import com.crayonnote.common.entity.SysMenu;
 import com.crayonnote.modules.system.dao.SysMenuDao;
 import com.crayonnote.modules.system.service.SysMenuService;
 import lombok.extern.java.Log;

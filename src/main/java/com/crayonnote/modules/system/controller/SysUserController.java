@@ -1,9 +1,9 @@
 package com.crayonnote.modules.system.controller;
 
-import com.crayonnote.modules.common.entity.SysUser;
-import com.crayonnote.modules.common.vo.SysUserVO;
+import com.crayonnote.common.entity.SysUser;
+import com.crayonnote.common.vo.SysUserVO;
 import com.crayonnote.modules.system.service.SysUserService;
-import com.crayonnote.modules.common.utils.CrayonResult;
+import com.crayonnote.common.utils.CrayonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

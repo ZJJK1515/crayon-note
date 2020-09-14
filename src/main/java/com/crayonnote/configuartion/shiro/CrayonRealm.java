@@ -1,7 +1,7 @@
 package com.crayonnote.configuartion.shiro;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.crayonnote.modules.common.entity.SysUser;
+import com.crayonnote.common.entity.SysUser;
 import com.crayonnote.modules.system.service.SysUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

@@ -1,7 +1,6 @@
-package com.crayonnote.modules.common.vo;
+package com.crayonnote.common.vo;
 
-import com.crayonnote.modules.common.AbstractVO;
-import com.crayonnote.modules.common.entity.SysUser;
+import com.crayonnote.common.AbstractVO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,7 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysUserVO extends AbstractVO<SysUserVO, SysUser> {
+public class SysUserVO extends AbstractVO {
 
     private String userId;
     @NotNull

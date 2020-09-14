@@ -1,4 +1,4 @@
-package com.crayonnote.modules.common.entity;
+package com.crayonnote.common.entity;
 
 
 

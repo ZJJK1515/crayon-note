@@ -1,4 +1,4 @@
-package com.crayonnote.modules.common.utils;
+package com.crayonnote.common.utils;
 
 import java.io.Serializable;
 

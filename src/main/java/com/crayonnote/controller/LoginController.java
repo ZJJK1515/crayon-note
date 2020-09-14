@@ -1,7 +1,7 @@
 package com.crayonnote.controller;
 
-import com.crayonnote.modules.common.entity.SysUser;
-import com.crayonnote.modules.common.vo.SysUserVO;
+import com.crayonnote.common.entity.SysUser;
+import com.crayonnote.common.vo.SysUserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -49,7 +49,7 @@ public class LoginController {
             e.printStackTrace();
             return "";
         }
-        return "redirect:home";
+        return "redirect:/home";
     }
 
 }

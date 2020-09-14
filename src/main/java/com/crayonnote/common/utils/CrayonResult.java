@@ -1,15 +1,17 @@
-package com.crayonnote.modules.common.utils;
+package com.crayonnote.common.utils;
 
 import java.util.HashMap;
 
 /**
  * 调用结果类
  *
+ * @author wy
  */
 public class CrayonResult extends HashMap<String, Object> {
 
     public CrayonResult() {
         super.put("success", true);
+        super.put("code", "200");
     }
 
     public CrayonResult(String key, Object value) {
@@ -30,8 +32,9 @@ public class CrayonResult extends HashMap<String, Object> {
                 .put("data", data);
     }
 
-    public static CrayonResult error(String code) {
+    public static CrayonResult error(String message) {
         return new CrayonResult("success", false)
-                .put("code", code);
+                .put("msg", message)
+                .put("code", "500");
     }
 }

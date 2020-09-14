@@ -1,4 +1,4 @@
-package com.crayonnote.modules.common.exception;
+package com.crayonnote.common.exception;
 
 public class CrayonException extends RuntimeException {
 

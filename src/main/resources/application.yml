@@ -9,6 +9,10 @@ server:
     context-path: /crayon-note
 
 spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
   # 环境 dev|prod
   profiles:
     active: dev

@@ -1,51 +1,3 @@
-<!-- 页面初始化 JS -->
-<script src="/crayon-note/static/assets/js/init-home.js"></script>
-<script src="/crayon-note/static/assets/js/vue.js"></script>
-
-<script src="/crayon-note/static/assets/js/core/popper.min.js"></script>
-<script src="/crayon-note/static/assets/js/core/bootstrap-material-design.min.js"></script>
-<script src="/crayon-note/static/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!-- Plugin for the momentJs  -->
-<script src="/crayon-note/static/assets/js/plugins/moment.min.js"></script>
-<!--  Plugin for Sweet Alert -->
-<script src="/crayon-note/static/assets/js/plugins/sweetalert2.js"></script>
-<!-- Forms Validations Plugin -->
-<script src="/crayon-note/static/assets/js/plugins/jquery.validate.min.js"></script>
-<!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter- bootstrap-wizard -->
-<script src="/crayon-note/static/assets/js/plugins/jquery.bootstrap-wizard.js"></script>
-<!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-<script src="/crayon-note/static/assets/js/plugins/bootstrap-selectpicker.js"></script>
-<!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-<script src="/crayon-note/static/assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-<!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-<script src="/crayon-note/static/assets/js/plugins/jquery.dataTables.min.js"></script>
-<!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-<script src="/crayon-note/static/assets/js/plugins/bootstrap-tagsinput.js"></script>
-<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-<script src="/crayon-note/static/assets/js/plugins/jasny-bootstrap.min.js"></script>
-<!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-<script src="/crayon-note/static/assets/js/plugins/fullcalendar.min.js"></script>
-<!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-<script src="/crayon-note/static/assets/js/plugins/jquery-jvectormap.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="/crayon-note/static/assets/js/plugins/nouislider.min.js"></script>
-<!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-<!-- Library for adding dinamically elements -->
-<script src="/crayon-note/static/assets/js/plugins/arrive.min.js"></script>
-<!--  Google Maps Plugin    -->
-<!--  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="/crayon-note/static/assets/js/plugins/bootstrap-notify.js"></script>
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="/crayon-note/static/assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>
-<!-- Material Dashboard DEMO methods, don't include it in your project! -->
-<script src="/crayon-note/static/assets/demo/demo.js"></script>
-<!-- Chartist JS -->
-<script src="/crayon-note/static/assets/js/plugins/chartist.min.js"></script>
-<script src="/crayon-note/static/assets/js/editormd.js"></script>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
@@ -115,125 +67,221 @@
     </div>
 </nav>
 <!-- End Navbar -->
-<div class="content">
+<div id="edit-vue" class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-icon card-header-rose">
-                        <div class="card-icon">
-                            <i class="material-icons">language</i>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <!--                        <h4 class="card-title">Here is the Icon</h4>-->
+            <div class="card col-lg-12 col-md-12 col-sm-12">
 
-                        <div class="row">
-                            <label id="article-title" class="col-sm-1 col-md-1 col-lg-1 col-form-label">title</label>
-                            <div class="col-sm-10">
-                                <div class="form-group bmd-form-group">
-                                    <input type="text" class="form-control">
-                                    <span class="bmd-help">请输入文章标题</span>
-                                </div>
-                            </div>
-                            <div id="crayon-editor">
-                                <textarea style="display:none;" id="ts"></textarea>
-                            </div>
-                        </div>
+                <div class="card-header card-header-icon card-header-rose">
+                    <div class="card-icon">
+                        <i class="material-icons">edit</i>
                     </div>
                 </div>
+                <div class="card-body">
+                    <!--                        <h4 class="card-title">Here is the Icon</h4>-->
+                    <label id="article-title" class="col-sm-1 col-md-1 col-lg-1 col-form-label">title</label>
+                    <div class="col-sm-6">
+                        <div class="form-group bmd-form-group">
+                            <input type="text" class="form-control">
+                            <span class="bmd-help">请输入文章标题</span>
+                        </div>
+                    </div>
+                    <div id="crayon-editor">
+                        <textarea style="display:none;" id="ts"></textarea>
+                    </div>
+                    <button class="btn btn-primary btn-fill"
+                            onclick='swal({ title:"Good job!", text: "You clicked the button!", type: "success", buttonsStyling: false, confirmButtonClass: "btn btn-success"})'>
+                        Try me!
+                    </button>
+                </div>
             </div>
-        </div>
 
+            <button v-on:click="counter += 1">Add 1</button>
+            <p>The button above has been clicked {{ counter }} times.</p>
+        </div>
     </div>
 </div>
 
-    <script>
+<script>
 
-        function initPasteDragImg(Editor) {
-            var doc = document.getElementById(Editor.id)
-            doc.addEventListener('paste', function (event) {
-                var items = (event.clipboardData || window.clipboardData).items;
-                var file = null;
-                console.log(items)
-                if (items && items.length) {
-                    // 搜索剪切板items
-                    for (var i = 0; i < items.length; i++) {
-                        if (items[i].type.indexOf('image') !== -1) {
-                            file = items[i].getAsFile();
-                            break;
-                        }
-                    }
-                } else {
-                    console.log("当前浏览器不支持");
-                    return;
-                }
-                if (!file) {
-                    console.log("粘贴内容非图片");
-                    return;
-                }
-                uploadImg(file, Editor);
-            });
-            var dashboard = document.getElementById(Editor.id)
-            dashboard.addEventListener("dragover", function (e) {
-                e.preventDefault()
-                e.stopPropagation()
-            })
-            dashboard.addEventListener("dragenter", function (e) {
-                e.preventDefault()
-                e.stopPropagation()
-            })
-            dashboard.addEventListener("drop", function (e) {
-                e.preventDefault()
-                e.stopPropagation()
-                var files = this.files || e.dataTransfer.files;
-                uploadImg(files[0], Editor);
-            })
-        }
-
-        function uploadImg(file, Editor) {
-            var formData = new FormData();
-            var fileName = new Date().getTime() + "." + file.name.split(".").pop();
-            console.log(Editor.settings.imageUploadURL)
-            formData.append('uploadFile', file, fileName);
-            $.ajax({
-                url: Editor.settings.imageUploadURL,
-                type: 'post',
-                data: formData,
-                processData: false,
-                contentType: false,
-                dataType: 'json',
-                success: function (msg) {
-                    var success = msg['success'];
-                    if (success == 1) {
-                        var url = msg["data"];
-                        if (/\.(png|jpg|jpeg|gif|bmp|ico)$/.test(url)) {
-                            Editor.insertValue("![图片alt](" + msg["data"] + " ''图片title'')");
-                        } else {
-                            Editor.insertValue("[下载附件](" + msg["data"] + ")");
+    var editVue = new Vue({
+        el: '#edit-vue',
+        data: {
+            counter: 0
+        },
+        methods: {
+            initPasteDragImg(Editor) {
+                var doc = document.getElementById(Editor.id)
+                doc.addEventListener('paste', function (event) {
+                    var items = (event.clipboardData || window.clipboardData).items;
+                    var file = null;
+                    console.log(items)
+                    if (items && items.length) {
+                        // 搜索剪切板items
+                        for (var i = 0; i < items.length; i++) {
+                            if (items[i].type.indexOf('image') !== -1) {
+                                file = items[i].getAsFile();
+                                break;
+                            }
                         }
                     } else {
-                        console.log(msg);
-                        alert("上传失败");
+                        console.log("当前浏览器不支持");
+                        return;
+                    }
+                    if (!file) {
+                        console.log("粘贴内容非图片");
+                        return;
+                    }
+                    uploadImg(file, Editor);
+                });
+                var dashboard = document.getElementById(Editor.id)
+                dashboard.addEventListener("dragover", function (e) {
+                    e.preventDefault()
+                    e.stopPropagation()
+                })
+                dashboard.addEventListener("dragenter", function (e) {
+                    e.preventDefault()
+                    e.stopPropagation()
+                })
+                dashboard.addEventListener("drop", function (e) {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    var files = this.files || e.dataTransfer.files;
+                    editVue.uploadImg(files[0], Editor);
+                })
+            },
+            uploadImg(file,Editor) {
+                    var formData = new FormData();
+                    var fileName = new Date().getTime() + "." + file.name.split(".").pop();
+                    console.log(Editor.settings.imageUploadURL)
+                    formData.append('uploadFile', file, fileName);
+                    $.ajax({
+                        url: Editor.settings.imageUploadURL,
+                        type: 'post',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType: 'json',
+                        success: function (msg) {
+                            var success = msg['success'];
+                            if (success == 1) {
+                                var url = msg["data"];
+                                if (/\.(png|jpg|jpeg|gif|bmp|ico)$/.test(url)) {
+                                    Editor.insertValue("![图片alt](" + msg["data"] + " ''图片title'')");
+                                } else {
+                                    Editor.insertValue("[下载附件](" + msg["data"] + ")");
+                                }
+                            } else {
+                                console.log(msg);
+                                alert("上传失败");
+                            }
+                        }
+                    });
+            },
+            initPage() {
+                testEditor = editormd("crayon-editor", {
+                    width: "100%",
+                    height: "640px%",
+                    syncScrolling: "single",
+                    path: "/crayon-note/static/assets/js/lib/",
+                    imageUpload: true,          // Enable/disable upload
+                    imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                    imageUploadURL: "/crayon-note/fileUpload/upload", //必须
+                    onload: function () {
+                        editVue.initPasteDragImg(this); //必须
+                    }
+                });
+            },
+        },
+        mounted: function () {
+            this.initPage();
+        }
+    })
+/*
+    function initPasteDragImg(Editor) {
+        var doc = document.getElementById(Editor.id)
+        doc.addEventListener('paste', function (event) {
+            var items = (event.clipboardData || window.clipboardData).items;
+            var file = null;
+            console.log(items)
+            if (items && items.length) {
+                // 搜索剪切板items
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].type.indexOf('image') !== -1) {
+                        file = items[i].getAsFile();
+                        break;
                     }
                 }
-            });
-        }
-
-        var testEditor;
-        $(function () {
-            testEditor = editormd("crayon-editor", {
-                width: "100%",
-                height: "800px",
-                syncScrolling: "single",
-                path: "/crayon-note/static/assets/js/lib/",
-                imageUpload: true,          // Enable/disable upload
-                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-                imageUploadURL: "/crayon-note/fileUpload/upload", //必须
-                onload: function () {
-                    initPasteDragImg(this); //必须
-                }
-            });
+            } else {
+                console.log("当前浏览器不支持");
+                return;
+            }
+            if (!file) {
+                console.log("粘贴内容非图片");
+                return;
+            }
+            uploadImg(file, Editor);
         });
+        var dashboard = document.getElementById(Editor.id)
+        dashboard.addEventListener("dragover", function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        })
+        dashboard.addEventListener("dragenter", function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+        })
+        dashboard.addEventListener("drop", function (e) {
+            e.preventDefault()
+            e.stopPropagation()
+            var files = this.files || e.dataTransfer.files;
+            uploadImg(files[0], Editor);
+        })
+    }
 
-    </script>
+    function uploadImg(file, Editor) {
+        var formData = new FormData();
+        var fileName = new Date().getTime() + "." + file.name.split(".").pop();
+        console.log(Editor.settings.imageUploadURL)
+        formData.append('uploadFile', file, fileName);
+        $.ajax({
+            url: Editor.settings.imageUploadURL,
+            type: 'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function (msg) {
+                var success = msg['success'];
+                if (success == 1) {
+                    var url = msg["data"];
+                    if (/\.(png|jpg|jpeg|gif|bmp|ico)$/.test(url)) {
+                        Editor.insertValue("![图片alt](" + msg["data"] + " ''图片title'')");
+                    } else {
+                        Editor.insertValue("[下载附件](" + msg["data"] + ")");
+                    }
+                } else {
+                    console.log(msg);
+                    alert("上传失败");
+                }
+            }
+        });
+    }
+
+    var testEditor;
+    $(function () {
+        testEditor = editormd("crayon-editor", {
+            width: "100%",
+            height: "640px%",
+            syncScrolling: "single",
+            path: "/crayon-note/static/assets/js/lib/",
+            imageUpload: true,          // Enable/disable upload
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "/crayon-note/fileUpload/upload", //必须
+            onload: function () {
+                initPasteDragImg(this); //必须
+            }
+        });
+    });
+*/
+</script>

@@ -70,6 +70,19 @@
 <div id="edit-vue" class="content">
     <div class="container-fluid">
         <div class="row">
+            <div class="card-body">
+                <div v-if="saveFlag && !initFlag" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>保存成功!</strong> {{new Date()}}
+<!--                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                    </button>-->
+                </div>
+                <div v-if="!saveFlag && !initFlag" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>保存失败!</strong> {{new Date()}}
+<!--                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                    </button>-->
+                </div>
             <div class="card col-lg-12 col-md-12 col-sm-12">
 
                 <div class="card-header card-header-icon card-header-rose">
@@ -77,7 +90,6 @@
                         <i class="material-icons">edit</i>
                     </div>
                 </div>
-                <div class="card-body">
                     <!--                        <h4 class="card-title">Here is the Icon</h4>-->
                     <label id="article-title" class="col-sm-1 col-md-1 col-lg-1 col-form-label">title</label>
                     <div class="col-sm-6">
@@ -86,8 +98,10 @@
                             <span class="bmd-help">请输入文章标题</span>
                         </div>
                     </div>
-                    <div id="crayon-editor" v-on:change="saveArticle()">
-                        <textarea style="display:none;" id="ts"></textarea>
+
+                    <div id="crayon-editor">
+                        <textarea id="ts" style="display:none;" v-model="article.articleText"></textarea>
+                        <textarea class="editormd-html-textarea" v-model="article.articleHtml" name="text"></textarea>
                     </div>
                 </div>
                 <button class="btn btn-primary btn-fill m-auto"
@@ -112,9 +126,11 @@
                 articleId: "",
                 articleTitle: "",
                 articleText: "",
-                articleHTML: "",
+                articleHtml: "",
                 articleTags: "",
-            }
+            },
+            saveFlag: false,
+            initFlag: true
         },
         methods: {
             initPasteDragImg(Editor) {
@@ -186,7 +202,8 @@
                     });
             },
             initPage() {
-                testEditor = editormd("crayon-editor", {
+                var _this = this;
+                crayonEditor = editormd("crayon-editor", {
                     width: "100%",
                     height: "640px",
                     syncScrolling: "single",
@@ -194,108 +211,39 @@
                     imageUpload: true,          // Enable/disable upload
                     imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
                     imageUploadURL: "/crayon-note/fileUpload/upload", //必须
+                    saveHTMLToTextarea: true,
                     onload: function () {
-                        editVue.initPasteDragImg(this); //必须
+                        _this.initPasteDragImg(this); //必须
+                    },
+                    onchange : function() {
+                        _this.article.articleText = this.getMarkdown();
+                        _this.article.articleHtml = this.getHTML();
+                        _this.saveArticle();
                     }
                 });
+                _this.initFlag = true;
+            },
+            getArticle() {
+                var _this = this;
+                axios.get('/crayon-note/article/getArticle').then(function (response) {
+                    _this.article.articleId = response.data.data.articleId;
+                })
             },
             saveArticle() {
-                alert('给我保存！')
-                axios.post('/crayon-note/test/testAxios')
+                var _this = this;
+                axios.post('/crayon-note/article/saveArticle',editVue.article)
                     .then(function (response) {
-                        console.log(response.data);
+                        if (response.data.success) {
+                            _this.saveFlag = true;
+                        }
                     })
+                _this.initFlag = false;
             }
         },
         mounted: function () {
             this.initPage();
+            this.getArticle();
         }
     })
-/*
-    function initPasteDragImg(Editor) {
-        var doc = document.getElementById(Editor.id)
-        doc.addEventListener('paste', function (event) {
-            var items = (event.clipboardData || window.clipboardData).items;
-            var file = null;
-            console.log(items)
-            if (items && items.length) {
-                // 搜索剪切板items
-                for (var i = 0; i < items.length; i++) {
-                    if (items[i].type.indexOf('image') !== -1) {
-                        file = items[i].getAsFile();
-                        break;
-                    }
-                }
-            } else {
-                console.log("当前浏览器不支持");
-                return;
-            }
-            if (!file) {
-                console.log("粘贴内容非图片");
-                return;
-            }
-            uploadImg(file, Editor);
-        });
-        var dashboard = document.getElementById(Editor.id)
-        dashboard.addEventListener("dragover", function (e) {
-            e.preventDefault()
-            e.stopPropagation()
-        })
-        dashboard.addEventListener("dragenter", function (e) {
-            e.preventDefault()
-            e.stopPropagation()
-        })
-        dashboard.addEventListener("drop", function (e) {
-            e.preventDefault()
-            e.stopPropagation()
-            var files = this.files || e.dataTransfer.files;
-            uploadImg(files[0], Editor);
-        })
-    }
 
-    function uploadImg(file, Editor) {
-        var formData = new FormData();
-        var fileName = new Date().getTime() + "." + file.name.split(".").pop();
-        console.log(Editor.settings.imageUploadURL)
-        formData.append('uploadFile', file, fileName);
-        $.ajax({
-            url: Editor.settings.imageUploadURL,
-            type: 'post',
-            data: formData,
-            processData: false,
-            contentType: false,
-            dataType: 'json',
-            success: function (msg) {
-                var success = msg['success'];
-                if (success == 1) {
-                    var url = msg["data"];
-                    if (/\.(png|jpg|jpeg|gif|bmp|ico)$/.test(url)) {
-                        Editor.insertValue("![图片alt](" + msg["data"] + " ''图片title'')");
-                    } else {
-                        Editor.insertValue("[下载附件](" + msg["data"] + ")");
-                    }
-                } else {
-                    console.log(msg);
-                    alert("上传失败");
-                }
-            }
-        });
-    }
-
-    var testEditor;
-    $(function () {
-        testEditor = editormd("crayon-editor", {
-            width: "100%",
-            height: "640px%",
-            syncScrolling: "single",
-            path: "/crayon-note/static/assets/js/lib/",
-            imageUpload: true,          // Enable/disable upload
-            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-            imageUploadURL: "/crayon-note/fileUpload/upload", //必须
-            onload: function () {
-                initPasteDragImg(this); //必须
-            }
-        });
-    });
-*/
 </script>

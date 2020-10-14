@@ -105,11 +105,11 @@
                     </div>
                 </div>
                 <button class="btn btn-primary btn-fill m-auto"
-                        onclick='swal({ title:"Good job!", text: "You clicked the button!", type: "success", buttonsStyling: false, confirmButtonClass: "btn btn-success"})'>
+                        onclick='swal({ title:"已存至草稿箱!", text: "", type: "success", buttonsStyling: false, confirmButtonClass: "btn btn-success"})'>
                     存为草稿
                 </button>
                 <button class="btn btn-primary btn-fill m-auto"
-                        onclick='swal({ title:"Good job!", text: "You clicked the button!", type: "success", buttonsStyling: false, confirmButtonClass: "btn btn-success"})'>
+                        onclick='swal({ title:"发布成功!", text: "", type: "success", buttonsStyling: false, confirmButtonClass: "btn btn-success"})'>
                     保存并发布
                 </button>
             </div>
@@ -231,6 +231,10 @@
             },
             saveArticle() {
                 var _this = this;
+                if (_this.article.articleTitle === '' && _this.article.articleText === '')
+                    return
+
+                console.log(_this.articleTitle, _this.articleText)
                 axios.post('/crayon-note/article/saveArticle',editVue.article)
                     .then(function (response) {
                         if (response.data.success) {

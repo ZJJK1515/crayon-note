@@ -26,7 +26,7 @@ public class LoginController {
     public String login() {
         //添加用户认证信息
         Subject subject = SecurityUtils.getSubject();
-        return subject.isAuthenticated() ? "home" : "login";
+        return subject.isAuthenticated() ? "admin" : "login";
     }
 
     @Valid

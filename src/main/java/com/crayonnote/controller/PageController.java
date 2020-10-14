@@ -13,6 +13,11 @@ public class PageController {
         return "home";
     }
 
+    @RequestMapping({"/admin"})
+    public String admin() {
+        return "admin";
+    }
+
     @GetMapping(value = "/getPage")
     public String getPage(String uri) {
         return uri;

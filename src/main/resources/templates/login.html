@@ -163,7 +163,7 @@
                 var _this = this;
                 axios.post('/crayon-note/login', _this.user).then(function (response) {
                     if (response.data.success) {
-                        window.location.href = "/crayon-note/admin"
+                        window.location.href = "/crayon-note/home"
                     } else {
                         alert(response.data.msg);
                     }

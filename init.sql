@@ -68,7 +68,11 @@ CREATE TABLE `sys_menu` (
 
 LOCK TABLES `sys_menu` WRITE;
 /*!40000 ALTER TABLE `sys_menu` DISABLE KEYS */;
-INSERT INTO `sys_menu` VALUES ('1231146873176068321','首页','dashboard','dashboard','0','2020-02-22 11:19:17','2020-02-22 11:19:36'),('1231146873177067522','系统管理','#','settings','0','2020-02-22 07:17:39','2020-03-19 14:52:09'),('1231146877325234177','用户管理','system/usermanage','person','1231146873177067522','2020-02-22 07:17:39','2020-02-23 09:30:40'),('1231146879493689345','博客管理','#','settings','0','2020-02-22 07:42:52','2020-02-22 09:21:13'),('1231146879493689346','文章编辑','article/edit','edit','0','2020-02-22 07:42:52','2020-02-22 09:21:13');
+INSERT INTO sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146873176068321', '首页', 'admin/dashboard', 'dashboard', '0', '2020-02-22 19:19:17', '2020-11-30 23:34:48');
+INSERT INTO sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146873177067522', '系统管理', '#', 'settings', '0', '2020-02-22 15:17:39', '2020-03-19 22:52:09');
+INSERT INTO sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146877325234177', '用户管理', 'admin/system/usermanage', 'person', '1231146873177067522', '2020-02-22 15:17:39', '2020-11-30 23:34:48');
+INSERT INTO sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146879493689345', '博客管理', '#', 'settings', '0', '2020-02-22 15:42:52', '2020-02-22 17:21:13');
+INSERT INTO sys_menu (menu_id, menu_name, uri, icon, parent_id, create_time, update_time) VALUES ('1231146879493689346', '文章编辑', 'admin/article/edit', 'edit', '0', '2020-02-22 15:42:52', '2020-11-30 23:34:48');
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -15,7 +15,7 @@ public class PageController {
 
     @RequestMapping({"/admin"})
     public String admin() {
-        return "admin";
+        return "/admin/admin";
     }
 
     @GetMapping(value = "/getPage")
@@ -25,7 +25,7 @@ public class PageController {
 
     @RequestMapping("/getFooter")
     public String getFooter() {
-        return "system/usermanage";
+        return "/admin/footer";
     }
 
 }

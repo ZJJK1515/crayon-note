@@ -12,13 +12,10 @@ import javax.validation.constraints.NotNull;
 public class SysUserVO extends AbstractVO {
 
     private String userId;
-    @NotNull
     private String username;
-    @NotNull
     private String password;
     private String salt;
     private String name;
-    @Email
     private String email;
     private boolean flag;
     private boolean deleted;

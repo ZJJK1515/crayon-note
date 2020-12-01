@@ -2,7 +2,6 @@ package com.crayonnote.modules.article.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.crayonnote.common.entity.CrayonArticle;
-import com.crayonnote.common.exception.CrayonException;
 import com.crayonnote.common.utils.CrayonResult;
 import com.crayonnote.modules.article.service.ICrayonArticleService;
 import lombok.extern.slf4j.Slf4j;

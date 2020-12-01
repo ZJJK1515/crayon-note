@@ -1,22 +1,19 @@
+<div id="user-vue" class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <span style="font-size: 14px">用户名：</span>
+            <input type="text" class="form-control" v-model="condition.queryVO.username"/>
 
-    <div id="crayon-app" class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-                <span style="font-size: 14px">用户名：</span> <input type="email" class="form-control" id="exampleEmail">
-
-            </div>
-            <div class="col-md-4">
-                <button type="button" class="btn btn-warning">
-                    搜索
-                </button>
-                <!-- Button trigger modal -->
-
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                    新增用户
-                </button>
-            </div>
+        </div>
+        <div class="col-md-4">
+            <button type="button" class="btn btn-warning" @click="findUser">
+                搜索
+            </button>
             <!-- Button trigger modal -->
 
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal">
+                新增用户
+            </button>
         </div>
     </div>
     <!-- Modal -->
@@ -31,48 +28,25 @@
                     <div class="table-responsive">
                         <table class="table">
                             <thead class="text-primary">
-                            <th>
-                                ID
-                            </th>
-                            <th>
-                                Name
-                            </th>
-                            <th>
-                                Country
-                            </th>
-                            <th>
-                                City
-                            </th>
-                            <th>
-                                Salary
-                            </th>
+                            <th>user_id</th>
+                            <th>username</th>
+                            <th>password</th>
+                            <th>salt</th>
+                            <th>name</th>
                             <th class="text-center">
                                 action
                             </th>
                             </thead>
                             <tbody>
-                                <tr>
-                                <td>
-                                    1
-                                </td>
-                                <td>
-                                    Dakota Rice
-                                </td>
-                                <td>
-                                    Niger
-                                </td>
-                                <td>
-                                    Oud-Turnhout
-                                </td>
-                                <td class="text-primary">
-                                    $36,738
-                                </td>
-
+                            <tr v-for="(user,i) in userList">
+                                <td>{{user.userId}}</td>
+                                <td>{{user.username}}</td>
+                                <td>{{user.password}}</td>
+                                <td>{{user.salt}}</td>
+                                <td class="text-primary">{{user.name}}</td>
                                 <td class="text-center">
-                                    <a href="#" class="btn btn-link btn-info btn-just-icon like"><i
-                                            class="material-icons">favorite</i></a>
                                     <a href="#" class="btn btn-link btn-warning btn-just-icon edit"><i
-                                            class="material-icons">dvr</i></a>
+                                            class="material-icons">edit</i></a>
                                     <a href="#" class="btn btn-link btn-danger btn-just-icon remove"><i
                                             class="material-icons">close</i></a>
                                 </td>
@@ -94,12 +68,12 @@
             </div>
         </div>
     </div>
-
+</div>
 
 
 
 <!-- 弹窗 -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -122,58 +96,32 @@
 </div>
 
 <script>
-    var vm = new Vue({/* 根实例 */
-        el: '#crayon-app',
-        // 指向的哪个元素（实例的挂载目标）
+    var vue = new Vue({
+        el: '#user-vue',
         data: {
-            msg: "你好"
+            condition: {
+                queryVO: {
+                    username: ""
+                },
+                total: "1",
+                size: "23",
+                current: "3"
+            },
+            userList:[]
+
         },
-        // 所有根实例下的数据
-        methods: {}
-        // 所有根实例下的方法区别
+        methods: {
+            findUser() {
+                var _this = this;
+                axios.post('/crayon-note/user/findUser', _this.condition).then(function (response) {
+                    console.log(response.data.data)
+                    _this.userList = response.data.data.records;
+                })
+            }
+        },
+        mounted: function () {
+            this.findUser();
+        }
     });
 </script>
 
-<!--   Core JS Files   -->
-<!--  <script src="../assets/js/core/jquery.min.js"></script>-->
-<!--  <script src="../assets/js/core/popper.min.js"></script>-->
-<!--  <script src="../assets/js/core/bootstrap-material-design.min.js"></script>-->
-<!--  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>-->
-<!--  &lt;!&ndash; Plugin for the momentJs  &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/moment.min.js"></script>-->
-<!--  &lt;!&ndash;  Plugin for Sweet Alert &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/sweetalert2.js"></script>-->
-<!--  &lt;!&ndash; Forms Validations Plugin &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/jquery.validate.min.js"></script>-->
-<!--  &lt;!&ndash; Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/jquery.bootstrap-wizard.js"></script>-->
-<!--  &lt;!&ndash;	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/bootstrap-selectpicker.js"></script>-->
-<!--  &lt;!&ndash;  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/bootstrap-datetimepicker.min.js"></script>-->
-<!--  &lt;!&ndash;  DataTables.net Plugin, full documentation here: https://datatables.net/  &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/jquery.dataTables.min.js"></script>-->
-<!--  &lt;!&ndash;	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/bootstrap-tagsinput.js"></script>-->
-<!--  &lt;!&ndash; Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>-->
-<!--  &lt;!&ndash;  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/fullcalendar.min.js"></script>-->
-<!--  &lt;!&ndash; Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/jquery-jvectormap.js"></script>-->
-<!--  &lt;!&ndash;  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/nouislider.min.js"></script>-->
-<!--  &lt;!&ndash; Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert &ndash;&gt;-->
-<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>-->
-<!--  &lt;!&ndash; Library for adding dinamically elements &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/arrive.min.js"></script>-->
-<!--  &lt;!&ndash;  Google Maps Plugin    &ndash;&gt;-->
-<!--  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
-<!--  &lt;!&ndash; Chartist JS &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/chartist.min.js"></script>-->
-<!--  &lt;!&ndash;  Notifications Plugin    &ndash;&gt;-->
-<!--  <script src="../assets/js/plugins/bootstrap-notify.js"></script>-->
-<!--  &lt;!&ndash; Control Center for Material Dashboard: parallax effects, scripts for the example pages etc &ndash;&gt;-->
-<!--  <script src="../assets/js/material-dashboard.js?v=2.1.2" type="text/javascript"></script>-->
-<!--  &lt;!&ndash; Material Dashboard DEMO methods, don't include it in your project! &ndash;&gt;-->
-<!--  <script src="../assets/demo/demo.js"></script>-->

@@ -9,6 +9,8 @@ server:
     context-path: /crayon-note
 
 spring:
+  application:
+    name: CRAYON-NOTE
   servlet:
     multipart:
       max-file-size: 10MB

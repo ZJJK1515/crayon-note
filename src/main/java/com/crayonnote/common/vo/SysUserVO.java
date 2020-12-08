@@ -13,7 +13,7 @@ public class SysUserVO {
     private String salt;
     private String name;
     private String email;
-    private boolean flag;
-    private boolean deleted;
+    private Boolean flag;
+    private Boolean deleted;
 
 }

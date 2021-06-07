@@ -1,0 +1,14 @@
+server:
+  port: 9010
+
+spring:
+  aop:
+    auto: true
+  application:
+    name: CRAYON-ARTICLE-SERVICE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+

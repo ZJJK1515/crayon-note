@@ -1,0 +1,14 @@
+server:
+  port: 9002
+
+spring:
+  aop:
+    auto: true
+  application:
+    name: CRAYON-ADMIN-SERVICE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+

@@ -1,0 +1,31 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: CRAYON-GATEWAY-SERVICE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
+
+zuul:
+  routes:
+    admin:
+      path: /admin/**
+      serviceId: CRAYON-ADMIN-SERVICE
+    article:
+      path: /article/**
+      serviceId: CRAYON-ARTICLE-SERVICE
+    data:
+      path: /data/**
+      serviceId: CRAYON-DATA-SERVICE
+    file:
+      path: /file/**
+      serviceId: CRAYON-FILE-SERVICE
+    portal:
+      path: /portal/**
+      serviceId: CRAYON-PORTAL-SERVICE
+

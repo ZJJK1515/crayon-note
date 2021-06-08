@@ -4,11 +4,13 @@ import lombok.Data;
 
 @Data
 public class RequestInfo {
+    private Long traceId;
     private String ip;
-    private String url;
+    private String requestUrl;
     private String httpMethod;
     private String classMethod;
-    private String requestParams;
-    private String result;
+    private Object requestParams;
+    private Object result;
     private Long timeCost;
+    private RuntimeException exception;
 }

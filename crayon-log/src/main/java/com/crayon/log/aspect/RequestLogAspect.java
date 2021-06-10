@@ -1,9 +1,8 @@
 package com.crayon.log.aspect;
 
 import com.alibaba.fastjson.JSON;
+import com.crayon.common.id.CrayonIdWorker;
 import com.crayon.pojo.po.RequestInfo;
-import id.CrayonIdWorker;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

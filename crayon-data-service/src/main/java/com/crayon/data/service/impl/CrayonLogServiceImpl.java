@@ -1,8 +1,8 @@
 package com.crayon.data.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.crayon.common.id.CrayonIdWorker;
 import com.crayon.data.dao.CrayonLogMapper;
 import com.crayon.pojo.po.CrayonLog;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,9 @@ public class CrayonLogServiceImpl extends ServiceImpl<CrayonLogMapper, CrayonLog
     @Transactional
     public int testTransaction() {
         ArrayList<CrayonLog> crayonLogs = new ArrayList<>();
-        for (int i = 0; i < 1000000; i++) {
-            System.out.println(IdWorker.getId());
+        for (int i = 0; i < 10; i++) {
             CrayonLog crayonLog = new CrayonLog();
+            crayonLog.setLogId(CrayonIdWorker.generateId());
             crayonLog.setLogContent("测试事务" + i);
             crayonLogs.add(crayonLog);
         }

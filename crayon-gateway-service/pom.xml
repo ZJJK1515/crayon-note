@@ -25,5 +25,9 @@
             <groupId>com.crayon</groupId>
             <artifactId>crayon-log</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.crayon</groupId>
+            <artifactId>crayon-pojo</artifactId>
+        </dependency>
     </dependencies>
 </project>

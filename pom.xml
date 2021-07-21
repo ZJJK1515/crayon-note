@@ -14,15 +14,15 @@
     <description>蜡笔手记</description>
     <packaging>pom</packaging>
     <modules>
-        <module>crayon-admin-service</module>
-        <module>crayon-article-service</module>
+        <module>crayon-admin</module>
+        <module>crayon-article</module>
         <module>crayon-common</module>
-        <module>crayon-data-service</module>
+        <module>crayon-data</module>
         <module>crayon-eureka</module>
         <module>crayon-feign</module>
         <module>crayon-file-service</module>
-        <module>crayon-gateway-service</module>
-        <module>crayon-portal-service</module>
+        <module>crayon-gateway</module>
+        <module>crayon-portal</module>
         <module>crayon-pojo</module>
         <module>crayon-log</module>
     </modules>

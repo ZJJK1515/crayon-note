@@ -7,7 +7,7 @@
 		<artifactId>crayon-note</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>crayon-data-service</artifactId>
+	<artifactId>crayon-data</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>crayon-data-service</name>
 	<description>查询服务</description>

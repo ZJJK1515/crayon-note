@@ -36,6 +36,7 @@
         <fastjson.version>1.2.68</fastjson.version>
         <spring-cloud.version>2.1.5.RELEASE</spring-cloud.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
+        <oshi-core.version>3.4.0</oshi-core.version>
     </properties>
 
     <dependencies>
@@ -149,6 +150,13 @@
                 <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
                 <version>${sharding-jdbc.version}</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.github.dblock/oshi-core -->
+            <dependency>
+                <groupId>com.github.dblock</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi-core.version}</version>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
             <dependency>
                 <groupId>redis.clients</groupId>

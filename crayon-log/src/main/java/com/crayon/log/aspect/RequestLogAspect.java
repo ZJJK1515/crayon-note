@@ -105,7 +105,6 @@ public class RequestLogAspect {
 
             requestParams.put(paramNames[i], value);
         }
-
         return requestParams;
     }
 

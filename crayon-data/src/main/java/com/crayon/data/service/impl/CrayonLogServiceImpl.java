@@ -39,7 +39,7 @@ public class CrayonLogServiceImpl extends ServiceImpl<CrayonLogMapper, CrayonLog
 
     public CrayonLog selectOne() {
         CrayonLog condition = new CrayonLog();
-        condition.setLogId(1394845198679658510L);
+        condition.setLogId(1425005002615406594L);
         QueryWrapper<CrayonLog> wrapper = new QueryWrapper<>();
         wrapper.setEntity(condition);
         return this.getOne(wrapper);

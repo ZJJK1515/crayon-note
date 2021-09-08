@@ -10,7 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 @Service
 public class CrayonLogServiceImpl extends ServiceImpl<CrayonLogMapper, CrayonLog> {
@@ -18,18 +22,21 @@ public class CrayonLogServiceImpl extends ServiceImpl<CrayonLogMapper, CrayonLog
     @Autowired
     private CrayonLogMapper crayonLogMapper;
 
+    Executor executor = Executors.newFixedThreadPool(100);
+
+
+    public int testTransaction() {
+        testInsert();
+        return 1;
+    }
 
     @Transactional
-    public int testTransaction() {
-        ArrayList<CrayonLog> crayonLogs = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            CrayonLog crayonLog = new CrayonLog();
-            crayonLog.setLogId(CrayonIdWorker.generateId());
-            crayonLog.setLogContent("测试事务" + i);
-            crayonLogs.add(crayonLog);
-        }
-        boolean b = this.saveBatch(crayonLogs);
-        return 1;
+    public int testInsert() {
+        CrayonLog crayonLog = new CrayonLog();
+        crayonLog.setLogId(CrayonIdWorker.generateId());
+        crayonLog.setLogContent("测试事务");
+        crayonLogMapper.insert(crayonLog);
+        throw new RuntimeException();
     }
 
     public List<CrayonLog> testFindALl() {

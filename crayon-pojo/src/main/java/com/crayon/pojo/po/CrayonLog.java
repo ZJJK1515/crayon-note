@@ -10,7 +10,7 @@ import lombok.Data;
 @TableName("crayon_log")
 public class CrayonLog {
 
-    @TableId(type = IdType.NONE)
+    @TableId(type = IdType.INPUT)
     private Long logId;
     private String logContent;
 

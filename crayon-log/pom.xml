@@ -20,6 +20,10 @@
             <groupId>com.crayon</groupId>
             <artifactId>crayon-common</artifactId>
         </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

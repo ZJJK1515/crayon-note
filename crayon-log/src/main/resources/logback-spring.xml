@@ -180,7 +180,7 @@
 
     <appender name="LOGSTASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
         <!--可以访问的logstash日志收集端口-->
-        <destination>127.0.0.1:9601</destination>
+        <destination>121.36.41.78:9250</destination>
         <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>
     <root level="info">
@@ -189,7 +189,7 @@
         <appender-ref ref="INFO_FILE"/>
         <appender-ref ref="WARN_FILE"/>
         <appender-ref ref="ERROR_FILE"/>
-        <appender-ref ref="LOGSTASH"/>
+<!--        <appender-ref ref="LOGSTASH"/>-->
     </root>
 
     <!--生产环境:输出到文件-->

@@ -23,9 +23,9 @@ import java.util.Properties;
 **/
 public class SystemInfoUtils {
     private static final int OSHI_WAIT_SECOND = 1000;
-    private static SystemInfo systemInfo = new SystemInfo();
-    private static HardwareAbstractionLayer hardware = systemInfo.getHardware();
-    private static OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
+    private static final SystemInfo systemInfo = new SystemInfo();
+    private static final HardwareAbstractionLayer hardware = systemInfo.getHardware();
+    private static final OperatingSystem operatingSystem = systemInfo.getOperatingSystem();
  
     public static JSONObject getCpuInfo() {
         JSONObject cpuInfo = new JSONObject();

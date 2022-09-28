@@ -29,11 +29,10 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <mysql.version>8.0.25</mysql.version>
+        <mysql.version>8.0.28</mysql.version>
         <druid.version>1.2.6</druid.version>
-        <mybatis-plus.version>3.4.2</mybatis-plus.version>
-        <shiro.version>1.4.2</shiro.version>
-        <fastjson.version>1.2.68</fastjson.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <spring-cloud.version>2.1.5.RELEASE</spring-cloud.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
         <oshi-core.version>3.4.0</oshi-core.version>
@@ -148,7 +147,7 @@
             </dependency>
             <!-- https://mvnrepository.com/artifact/com.github.dblock/oshi-core -->
             <dependency>
-                <groupId>com.github.dblock</groupId>
+                <groupId>com.github.oshi</groupId>
                 <artifactId>oshi-core</artifactId>
                 <version>${oshi-core.version}</version>
             </dependency>

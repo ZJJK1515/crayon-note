@@ -1,0 +1,14 @@
+{
+  "dataSource": {
+    "url": "jdbc:mysql://localhost:3306/",
+    "driverClass": "com.mysql.jdbc.cj.Driver",
+    "username": "root",
+    "password": "root#macos"
+  },
+  "tableList": [
+    {"tableName":  "", "sharding": true},
+    {"tableName":  ""},
+    {"tableName":  ""},
+    {"tableName":  ""}
+  ]
+}

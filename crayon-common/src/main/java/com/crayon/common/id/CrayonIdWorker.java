@@ -34,9 +34,9 @@ public class CrayonIdWorker {
     // 数据中心标识位数
     private final static long datacenterIdBits = 5L;
     // 机器ID最大值
-    private final static long maxWorkerId = -1L ^ (-1L << workerIdBits);
+    private final static long maxWorkerId = ~(-1L << workerIdBits);
     // 数据中心ID最大值
-    private final static long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
+    private final static long maxDatacenterId = ~(-1L << datacenterIdBits);
     // 毫秒内自增位
     private final static long sequenceBits = 12L;
     // 机器ID偏左移12位
@@ -150,7 +150,8 @@ public class CrayonIdWorker {
         try {
             InetAddress ip = InetAddress.getLocalHost();
             NetworkInterface network = NetworkInterface.getByInetAddress(ip);
-            if (network == null) {
+            // mac 环境拿不到 HardwareAddress
+            if (network == null || network.getHardwareAddress() == null) {
                 id = 1L;
             } else {
                 byte[] mac = network.getHardwareAddress();

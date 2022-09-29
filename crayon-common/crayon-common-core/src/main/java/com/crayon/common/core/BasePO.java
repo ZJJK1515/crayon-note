@@ -1,6 +1,4 @@
-package com.crayon.pojo.po;
-
-import lombok.Data;
+package com.crayon.common.core;
 
 import java.time.LocalDateTime;
 

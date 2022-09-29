@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.2.10.RELEASE</version>
     </parent>
     <groupId>com.crayon</groupId>
     <artifactId>crayon-note</artifactId>
@@ -15,7 +15,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>crayon-admin</module>
-        <module>crayon-article</module>
         <module>crayon-common</module>
         <module>crayon-data</module>
         <module>crayon-eureka</module>
@@ -125,7 +124,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>2.1.5.RELEASE</version>
+                <version>2.2.10.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -150,12 +149,7 @@
                 <version>${oshi-core.version}</version>
             </dependency>
 
-            <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
-            <dependency>
-                <groupId>redis.clients</groupId>
-                <artifactId>jedis</artifactId>
-                <version>3.3.0</version>
-            </dependency>
+
 
             <dependency>
                 <groupId>com.crayon</groupId>

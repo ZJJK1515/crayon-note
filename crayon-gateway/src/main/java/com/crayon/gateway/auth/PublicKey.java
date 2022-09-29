@@ -1,4 +1,4 @@
-package com.crayon.pojo.po.auth;
+package com.crayon.gateway.auth;
 
 import lombok.Data;
 

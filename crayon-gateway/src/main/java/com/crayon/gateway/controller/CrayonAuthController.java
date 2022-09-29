@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.crayon.common.core.Result;
 import com.crayon.gateway.auth.RSAEncrypt;
-import com.crayon.pojo.po.auth.PublicKey;
+import com.crayon.gateway.auth.PublicKey;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -23,11 +23,12 @@
         </dependency>
         <dependency>
             <groupId>com.crayon</groupId>
-            <artifactId>crayon-log</artifactId>
+            <artifactId>crayon-pojo</artifactId>
         </dependency>
         <dependency>
             <groupId>com.crayon</groupId>
-            <artifactId>crayon-pojo</artifactId>
+            <artifactId>crayon-common-core</artifactId>
+            <version>${crayon.common.version}</version>
         </dependency>
     </dependencies>
 </project>

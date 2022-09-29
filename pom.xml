@@ -19,12 +19,9 @@
         <module>crayon-common</module>
         <module>crayon-data</module>
         <module>crayon-eureka</module>
-        <module>crayon-feign</module>
-        <module>crayon-file-service</module>
         <module>crayon-gateway</module>
         <module>crayon-portal</module>
         <module>crayon-pojo</module>
-        <module>crayon-log</module>
     </modules>
 
     <properties>
@@ -36,6 +33,7 @@
         <spring-cloud.version>2.1.5.RELEASE</spring-cloud.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
         <oshi-core.version>3.4.0</oshi-core.version>
+        <crayon.common.version>1.0-SNAPSHOT</crayon.common.version>
     </properties>
 
     <dependencies>
@@ -108,10 +106,10 @@
                 <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-thymeleaf</artifactId>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>mysql</groupId>
@@ -158,11 +156,6 @@
                 <artifactId>jedis</artifactId>
                 <version>3.3.0</version>
             </dependency>
-            <dependency>
-                <groupId>com.crayon</groupId>
-                <artifactId>crayon-feign</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.crayon</groupId>
@@ -171,13 +164,13 @@
             </dependency>
             <dependency>
                 <groupId>com.crayon</groupId>
-                <artifactId>crayon-log</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <artifactId>crayon-common</artifactId>
+                <version>${crayon.common.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.crayon</groupId>
-                <artifactId>crayon-common</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <groupId>javax.servlet</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>2.5</version>
             </dependency>
             <dependency>
                 <groupId>net.logstash.logback</groupId>

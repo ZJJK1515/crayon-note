@@ -12,10 +12,7 @@
     <artifactId>crayon-portal</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.crayon</groupId>
-            <artifactId>crayon-log</artifactId>
-        </dependency>
+
     </dependencies>
 
 </project>

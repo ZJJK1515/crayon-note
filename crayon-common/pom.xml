@@ -10,17 +10,43 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>crayon-common</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>crayon-common-log</module>
+        <module>crayon-common-core</module>
+        <module>crayon-common-user</module>
+        <module>crayon-common-redis-client</module>
+        <module>crayon-common-mq-client</module>
+        <module>crayon-common-qiniu-client</module>
+    </modules>
+    <properties>
+        <crayon.common.version>1.0-SNAPSHOT</crayon.common.version>
+    </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.crayon</groupId>
-            <artifactId>crayon-pojo</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.oshi</groupId>
-            <artifactId>oshi-core</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.crayon</groupId>-->
+<!--            <artifactId>crayon-pojo</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>com.github.oshi</groupId>-->
+<!--            <artifactId>oshi-core</artifactId>-->
+<!--        </dependency>-->
     </dependencies>
 
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-common-core</artifactId>
+                <version>${crayon.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-common-log</artifactId>
+                <version>${crayon.common.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

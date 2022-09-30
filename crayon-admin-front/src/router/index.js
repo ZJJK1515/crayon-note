@@ -53,23 +53,36 @@ export const asyncRoutes = [
       },
     ],
   },
-  /* {
-    path: "/test",
+  {
+    path: '/articleManagement',
     component: Layout,
-    redirect: "noRedirect",
+    redirect: 'noRedirect',
+    name: 'ArticleManagement',
+    alwaysShow: true,
+    meta: { title: '文章管理', icon: 'box-open' },
     children: [
       {
-        path: "test",
-        name: "Test",
-        component: () => import("@/views/test/index"),
+        path: '/articleEdit',
+        name: 'ArticleEdit',
+        component: () => import('@/views/articleManagement/articleEdit/index'),
         meta: {
-          title: "test",
-          icon: "marker",
-          permissions: ["admin"],
+          title: '文章编辑',
+          icon: 'marker',
+          permissions: ['admin', 'editor'],
+        },
+      },
+      {
+        path: '/articleList',
+        name: 'ArticleList',
+        component: () => import('@/views/articleManagement/articleList/index'),
+        meta: {
+          title: '文章列表',
+          icon: 'marker',
+          permissions: ['admin', 'editor'],
         },
       },
     ],
-  }, */
+  },
 
   {
     path: '/vab',

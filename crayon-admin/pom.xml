@@ -5,11 +5,10 @@
 	<parent>
 		<artifactId>crayon-note</artifactId>
 		<groupId>com.crayon</groupId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>crayon-admin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
 	<name>crayon-admin</name>
 	<description>蜡笔手记-admin管理系统</description>
 	<properties>

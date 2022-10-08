@@ -5,12 +5,12 @@
     <parent>
         <groupId>com.crayon</groupId>
         <artifactId>crayon-note</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <groupId>com.cryaon</groupId>
     <artifactId>crayon-eureka</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>crayon-eureka</name>
     <description>Crayon Eureka</description>
 

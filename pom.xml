@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.crayon</groupId>
     <artifactId>crayon-note</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>crayon-note</name>
     <description>蜡笔手记</description>
     <packaging>pom</packaging>
@@ -29,10 +29,9 @@
         <druid.version>1.2.6</druid.version>
         <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <fastjson.version>1.2.83</fastjson.version>
-        <spring-cloud.version>2.1.5.RELEASE</spring-cloud.version>
+        <spring-cloud.version>2.2.10.RELEASE</spring-cloud.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
         <oshi-core.version>3.4.0</oshi-core.version>
-        <crayon.common.version>1.0-SNAPSHOT</crayon.common.version>
     </properties>
 
     <dependencies>
@@ -75,11 +74,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
         </dependency>
 
         <dependency>
@@ -154,17 +148,17 @@
             <dependency>
                 <groupId>com.crayon</groupId>
                 <artifactId>crayon-pojo</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.crayon</groupId>
                 <artifactId>crayon-common</artifactId>
-                <version>${crayon.common.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>2.5</version>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
             </dependency>
             <dependency>
                 <groupId>net.logstash.logback</groupId>

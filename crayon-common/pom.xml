@@ -5,7 +5,7 @@
     <parent>
         <artifactId>crayon-note</artifactId>
         <groupId>com.crayon</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,9 +20,6 @@
         <module>crayon-common-mq-client</module>
         <module>crayon-common-qiniu-client</module>
     </modules>
-    <properties>
-        <crayon.common.version>1.0-SNAPSHOT</crayon.common.version>
-    </properties>
 
     <dependencies>
 <!--        <dependency>-->
@@ -40,12 +37,12 @@
             <dependency>
                 <groupId>com.crayon</groupId>
                 <artifactId>crayon-common-core</artifactId>
-                <version>${crayon.common.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.crayon</groupId>
                 <artifactId>crayon-common-log</artifactId>
-                <version>${crayon.common.version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

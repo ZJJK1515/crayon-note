@@ -5,10 +5,10 @@
       ref="ruleForm"
       :model="ruleForm"
       :rules="rules"
-      label-width="100px"
+      label-width="70px"
       class="demo-ruleForm"
     >
-      <el-form-item label="sa" prop="name">
+      <el-form-item label="文章标题" prop="name">
         <el-input v-model="title" aria-placeholder="asdas">tests</el-input>
       </el-form-item>
     </el-form>

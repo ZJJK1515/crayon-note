@@ -5,16 +5,25 @@ import com.alibaba.fastjson.JSONObject;
 import com.crayon.common.core.Result;
 import com.crayon.gateway.auth.RSAEncrypt;
 import com.crayon.gateway.auth.PublicKey;
+import com.crayon.user.clientobject.CrayonTokenCO;
+import com.crayon.user.command.CrayonUserLoginCommand;
+import com.crayon.user.feign.CrayonUserClientFeign;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 @Slf4j
 @RestController
 @RequestMapping("/api")
 public class CrayonAuthController {
+
+    @Autowired
+    private CrayonUserClientFeign crayonUserClientFeign;
 
     @RequestMapping(value = "/publicKey", method = RequestMethod.GET)
     public Result<PublicKey> publicKey() {
@@ -22,9 +31,19 @@ public class CrayonAuthController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestBody String json) {
-        log.info("调用登陆开始...{}", json);
-        return JSON.parseObject("{code: 200, msg: 'success', data: { accessToken: 'admin-accessToken' },}").toJSONString();
+    public Result<CrayonTokenCO> login(@RequestBody String json) {
+        try {
+            String param = JSON.parseObject(json).getString("param");
+            String decryptJson = RSAEncrypt.decrypt(param, RSAEncrypt.PRIVATE_KEY);
+
+            log.info("调用登陆开始...{}", decryptJson);
+            CrayonUserLoginCommand crayonUserLoginCommand = JSON.parseObject(decryptJson, CrayonUserLoginCommand.class);
+
+            return crayonUserClientFeign.login(crayonUserLoginCommand);
+        } catch (Exception e) {
+            log.error("系统异常", e);
+            return Result.error("系统异常");
+        }
     }
 
     @RequestMapping(value = "/userInfo", method = RequestMethod.POST)

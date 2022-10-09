@@ -21,15 +21,17 @@
         <module>crayon-gateway</module>
         <module>crayon-portal</module>
         <module>crayon-pojo</module>
+        <module>crayon-user</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
-        <mysql.version>8.0.28</mysql.version>
+        <mysql.version>8.0.30</mysql.version>
         <druid.version>1.2.6</druid.version>
         <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <fastjson.version>1.2.83</fastjson.version>
         <spring-cloud.version>2.2.10.RELEASE</spring-cloud.version>
+        <open-feign.version>2.2.10.RELEASE</open-feign.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
         <oshi-core.version>3.4.0</oshi-core.version>
     </properties>
@@ -118,7 +120,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>2.2.10.RELEASE</version>
+                <version>${open-feign.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -152,7 +154,39 @@
             </dependency>
             <dependency>
                 <groupId>com.crayon</groupId>
-                <artifactId>crayon-common</artifactId>
+                <artifactId>crayon-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-common-log</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-common-user</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-common-redis-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-common-mq-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-common-qiniu-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- crayon client -->
+            <dependency>
+                <groupId>com.crayon</groupId>
+                <artifactId>crayon-user-client</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

@@ -1,7 +1,7 @@
 package com.crayon.user.service.impl;
 
 import com.crayon.common.core.Result;
-import com.crayon.user.clientobject.CrayonTokenCO;
+import com.crayon.user.clientobject.CrayonLoginCO;
 import com.crayon.user.command.CrayonUserLoginCommand;
 import com.crayon.user.command.CrayonUserLogoutCommand;
 import com.crayon.user.executor.CrayonUserLoginCommandExecutor;
@@ -20,7 +20,7 @@ public class CrayonAuthServiceImpl implements ICrayonAuthService {
     @Resource
     private CrayonUserLogoutCommandExecutor crayonUserLogoutCommandExecutor;
 
-    public Result<CrayonTokenCO> login(CrayonUserLoginCommand crayonUserLoginCommand) {
+    public Result<CrayonLoginCO> login(CrayonUserLoginCommand crayonUserLoginCommand) {
         return crayonUserLoginCommandExecutor.execute(crayonUserLoginCommand);
     }
 

@@ -23,10 +23,6 @@
 
     <dependencies>
 <!--        <dependency>-->
-<!--            <groupId>com.crayon</groupId>-->
-<!--            <artifactId>crayon-pojo</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
 <!--            <groupId>com.github.oshi</groupId>-->
 <!--            <artifactId>oshi-core</artifactId>-->
 <!--        </dependency>-->

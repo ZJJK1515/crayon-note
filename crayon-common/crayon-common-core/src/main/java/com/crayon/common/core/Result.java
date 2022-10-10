@@ -39,6 +39,10 @@ public class Result<T> {
         this.msg = msg;
     }
 
+    public boolean isOK() {
+        return this.code == 200;
+    }
+
     public static <T> Result<T> ok() {
         return new Result<>();
     }

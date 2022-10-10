@@ -1,4 +1,4 @@
-package com.crayon.redis.config;
+package com.crayon.common.redis.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -56,11 +56,6 @@ public class CrayonRedisConfiguration {
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer())).entryTtl(Duration.ofDays(1));
         return new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
     }
-//    @Bean
-//    public RedisService redisService(){
-//        return new RedisServiceImpl();
-//    }
-
 
 }
 

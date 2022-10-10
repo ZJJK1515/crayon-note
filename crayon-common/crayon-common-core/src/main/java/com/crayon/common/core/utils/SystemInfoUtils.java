@@ -14,7 +14,6 @@ import oshi.util.Util;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.DecimalFormat;
-import java.util.List;
 import java.util.Properties;
 
 /**

@@ -1,11 +1,14 @@
 package com.crayon.user.adapter;
 
 import com.crayon.common.core.Result;
-import com.crayon.user.clientobject.CrayonTokenCO;
+import com.crayon.user.clientobject.CrayonLoginCO;
 import com.crayon.user.command.CrayonUserLoginCommand;
 import com.crayon.user.command.CrayonUserLogoutCommand;
 import com.crayon.user.service.ICrayonAuthService;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -17,7 +20,7 @@ public class CrayonAuthAdapter {
     private ICrayonAuthService crayonAuthService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Result<CrayonTokenCO> login(@RequestBody CrayonUserLoginCommand crayonUserLoginCommand) {
+    public Result<CrayonLoginCO> login(@RequestBody CrayonUserLoginCommand crayonUserLoginCommand) {
         return crayonAuthService.login(crayonUserLoginCommand);
     }
 

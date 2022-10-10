@@ -20,7 +20,6 @@
         <module>crayon-eureka</module>
         <module>crayon-gateway</module>
         <module>crayon-portal</module>
-        <module>crayon-pojo</module>
         <module>crayon-user</module>
     </modules>
 
@@ -34,6 +33,7 @@
         <open-feign.version>2.2.10.RELEASE</open-feign.version>
         <sharding-jdbc.version>3.0.0</sharding-jdbc.version>
         <oshi-core.version>3.4.0</oshi-core.version>
+        <java-jwt.version>3.18.3</java-jwt.version>
     </properties>
 
     <dependencies>
@@ -145,13 +145,6 @@
                 <version>${oshi-core.version}</version>
             </dependency>
 
-
-
-            <dependency>
-                <groupId>com.crayon</groupId>
-                <artifactId>crayon-pojo</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.crayon</groupId>
                 <artifactId>crayon-common-core</artifactId>
@@ -188,6 +181,11 @@
                 <groupId>com.crayon</groupId>
                 <artifactId>crayon-user-client</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${java-jwt.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>

@@ -1,6 +1,5 @@
-package com.crayon.redis;
+package com.crayon.common.redis;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.GeoResults;
@@ -11,19 +10,21 @@ import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Component
 public class RedisUtil {
 
-    @Autowired
+    @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    public void set(String key, Object value, long time) {
-        redisTemplate.opsForValue().set(key, value, time, TimeUnit.SECONDS);
+    public void set(String key, Object value, long time, TimeUnit timeUnit) {
+        redisTemplate.opsForValue().set(key, value, time, timeUnit);
     }
 
     public void set(String key, Object value) {
@@ -32,6 +33,14 @@ public class RedisUtil {
 
     public Object get(String key) {
         return redisTemplate.opsForValue().get(key);
+    }
+
+    public <T> T get(String key, Class<T> type) {
+        Object o = redisTemplate.opsForValue().get(key);
+        if (Objects.nonNull(o)) {
+            return type.cast(o);
+        }
+        return null;
     }
 
     public Boolean del(String key) {

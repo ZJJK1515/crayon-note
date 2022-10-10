@@ -35,11 +35,13 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
         </dependency>
-        <!-- TODO 修改依赖 -->
+        <dependency>
+            <groupId>com.crayon</groupId>
+            <artifactId>crayon-common-redis-client</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.crayon</groupId>
             <artifactId>crayon-user-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

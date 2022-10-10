@@ -1,4 +1,4 @@
-package com.crayon.user.clientobject;
+package com.crayon.gateway.auth;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,8 +6,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CrayonTokenCO {
-    /**
-     * 认证 token
-     */
     private String accessToken;
 }

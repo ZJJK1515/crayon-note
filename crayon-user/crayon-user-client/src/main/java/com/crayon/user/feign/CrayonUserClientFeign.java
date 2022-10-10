@@ -1,7 +1,7 @@
 package com.crayon.user.feign;
 
 import com.crayon.common.core.Result;
-import com.crayon.user.clientobject.CrayonTokenCO;
+import com.crayon.user.clientobject.CrayonLoginCO;
 import com.crayon.user.command.CrayonUserLoginCommand;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface CrayonUserClientFeign {
 
     @RequestMapping(value = "/api/v1/login", method = RequestMethod.POST)
-    Result<CrayonTokenCO> login(@RequestBody CrayonUserLoginCommand crayonUserLoginCommand);
+    Result<CrayonLoginCO> login(@RequestBody CrayonUserLoginCommand crayonUserLoginCommand);
 }

@@ -53,7 +53,8 @@ public class JWTUtil {
     }
 
     public static Long parseJWTClaimAsLong(String token, String claimKey) {
-        return parseJWTClaim(token, claimKey).asLong();
+        Claim claim = parseJWTClaim(token, claimKey);
+        return Long.valueOf(claim.asString());
     }
 
     public static Date getExpireAt(String token) {

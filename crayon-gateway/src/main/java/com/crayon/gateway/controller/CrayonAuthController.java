@@ -1,7 +1,6 @@
 package com.crayon.gateway.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.crayon.common.core.Result;
 import com.crayon.common.core.UserInfo;
 import com.crayon.common.redis.RedisUtil;
@@ -15,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
@@ -89,6 +90,9 @@ public class CrayonAuthController {
         String accessToken = JSON.parseObject(accessTokenBody).getString("accessToken");
         Long userId = JWTUtil.parseJWTClaimAsLong(accessToken, "userId");
         UserInfo userInfo = redisUtil.get(CrayonGatewayKeyConstant.buildUserAccessTokenKey(userId), UserInfo.class);
+        Set<String> permissions = new HashSet<>();
+        permissions.add("admin");
+        userInfo.setPermissions(permissions);
         return Result.ok(userInfo);
     }
 }

@@ -35,6 +35,7 @@ public class CrayonUserLoginCommandExecutor {
         if (crayonUserDO != null && crayonUserDO.getPassword().equals(crayonUserLoginCommand.getPassword())) {
             CrayonLoginCO crayonLoginCO = new CrayonLoginCO();
             BeanUtils.copyProperties(crayonUserDO, crayonLoginCO);
+            crayonLoginCO.setAvatar(crayonUserDO.getUserAvatar());
             return Result.ok(crayonLoginCO);
         }
         return Result.error("用户名或密码错误");

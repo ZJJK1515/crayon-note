@@ -199,3 +199,23 @@ UNLOCK TABLES;
 
 -- Dump completed on 2021-06-10 17:12:57
 
+
+-- auto-generated definition
+create table crayon_user
+(
+    id              bigint                   not null comment '主键'
+        primary key,
+    user_id         bigint                   not null comment '用户id',
+    login_name      varchar(20)   default '' not null comment '登录名',
+    email           varchar(100)  default '' not null comment '邮箱',
+    username        varchar(20)   default '' not null comment '昵称/用户名',
+    password        varchar(50)   default '' not null comment '密码',
+    user_avatar     varchar(1000) default '' not null comment '头像图片.',
+    create_user_id  bigint                   not null comment '创建人id',
+    create_username varchar(20)   default '' not null comment '创建人用户名',
+    modify_user_id  bigint                   not null comment '修改人id',
+    modify_username varchar(20)   default '' not null comment '修改人用户名'
+)
+    comment '用户表';
+
+
